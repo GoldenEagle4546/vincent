@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+  *{
+  margin: 0;
+  padding: 0;
+  }
+
+body{
+  min-height: 100vh;
+  background:#;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:#131313;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .navbar .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #131313;
+            }
+
+            .navbar .nav-links li {
+                margin: 0;
+            }
+
+            .navbar .nav-links a {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
+
+        .navbar.responsive .nav-links {
+            display: flex;
+        }
+        
+@media(max-width:768px){
+  .container{
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+  .hero-text{
+    padding:40px 0px ;
+  }
+}
+
+      .container{
+      background-color: #080808;
+      display: flex;
+      justify-content:space-evenly ;
+      align-items: center;
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+      }
+      
+      .container .hero-pic{
+      widh:300px;
+      heigh:300px;
+      border-radiu:50% ;
+      overflo: hidden;
+      borde:9px solid #00ffee;
+      box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+      }
+      
+      .hero-pic img{
+        height: 300px;
+        width: 300px;
+        animation: floatImage 4s ease-in-out infinite;
+        transition:0.4s ease;
+        border-radius: 50%;
+        border:2px solid #00ffee;
+        box-shadow: 0 0 25px #00ffee;
+      }
+
+      .hero-text{
+        max-width: 500px;
+        display:flex;
+        flex-direction:column ;
+      }
+
+      .hero-text h5{
+        color:white;
+        font-size: 14px;
+      }
+
+      .hero-text h5 span{
+        color:#00ffee;
+        font-size: 16px;
+      }
+
+      .hero-text h1{
+        color:#00ffee;
+        font-size: 3rem;
+      }
+       
+      .hero-text p{
+        color:white;
+      }
+
+      .btn-group{
+        margin:45px 0;
+      }
+
+      .btn-group .btn{
+        border-color:#d5d5d5;
+        color: white;
+        background-color: #333;
+        padding:12px 25px;
+        margin:5px;
+        border-radius: 30px;
+        border:2px solid white;
+        margin-right: 7px;
+        box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+      }
+
+      .btn.active{
+        text-decoration: none;
+        border-color: #00ffee;
+      }
+      .btn{
+        text-decoration: none;
+      }
+
+      .hero-text .social i{
+        color: white;
+        font-size:18px;
+        margin-right:10px;
+        transition: 0.5s;
+      }
+      
+      .hero-text .social i:hover{
+        color:#00ffee;
+        transform: rotate(360deg);
+      }
+
+      @keyframes floatImage {
+        0%{
+          transform:translateY(0);
+        }
+        50%{
+          transform:translateY(-2.4rem);
+        }
+        100%{
+          transform:translateY(0);
+        }
+      }
+      footer {
+            background-color: #131313;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ddd;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+        <a src="#" class="logo">Vincent Web</a>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="home.html">Services</a></li>
+            <li><a href="Contactus.html">Contact</a></li>
+        </ul>
+    </nav>
+    </div>
+ <div class="container">
+    <div class="hero-pic">
+    <img src="images/pic9.jpg">
+      </div>
+      <div class="hero-text">
+        <h5>Hi I'm <span class="input">Web Developer</span></h5>
+        <h1>Vincent Weru</h1>
+        <p>Hi! I'm Vincent, a programmer with love for coding. I'm always eager to learn and explore new things. I believe in creativity, hardwork and honesty. Let's connect and share ideas!</p>
+        <div class="btn-group">
+          <a href="tel:+254739124529" class="btn active">Contact Me</a>
+       <!--  <a href="#" class="btn">Download CV</a> -->
+        </div>
+        <div class="social">
+          <a href="https://wa.me/254739124529"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:weruvincent@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+
+    </div>
+        <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About </h3>
+                <p> Dedicated to providing the best services to my customers.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Contactus.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Me</h3>
+                <p>Email: weruvincent@gmail.com</p>
+                <p>Phone: +254 739 124 529</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Vincent. All rights reserved.
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+  <script>
+   function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+            function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('responsive');
+}
+
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none';
+    });
+}
+
+function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+
+var typed=new Typed(".input",{
+  strings:["Web Developer","Graphic Designer",],
+  typedSpeed:270,
+  backSpeed:170,
+  loop:true
+})
+  </script>
+</body>
+</html>

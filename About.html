@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #131313;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .navbar .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #131313;
+            }
+
+            .navbar .nav-links li {
+                margin: 0;
+            }
+
+            .navbar .nav-links a {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
+
+        .navbar.responsive .nav-links {
+            display: flex;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.about-us {
+    padding: 50px 0;
+    background: #080808;
+    text-align: center;
+}
+.about-us span{
+    color:#00ffee;
+}
+.about-us h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #fff;
+}
+
+.about-us p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    margin: 20px;
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+     border-radius:50% ;
+      overflow: hidden;
+      border:2px solid #00ffee;
+      box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    transition:0.4s ;
+    transform-box: 1.5;
+}
+
+.team-member h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0 5px;
+}
+
+.team-member p {
+    font-size: 1em;
+    color: #666;
+}
+
+        
+.content {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #131313;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ddd;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <a src="image/log.jpg" class="logo">Vincent Web</a>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Contactus.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+        <section class="about-us">
+        <div class="container">
+             <div class="team-member">
+                    <img src="images/pic9.jpg" alt="Team Member 1">
+                </div>
+            <h1>About <span>Me</span></h1>
+            <p>My passion for technology drives me to stay updated with the latest trends, ensuring that my skills remain sharp and relevant. When I'm not coding, you can find me experimenting with new programming languages or working on personal projects that challenge my skills and ignite my curiosity.</p>
+            <div class="team">
+            </div>
+        </div>
+    </section>
+        
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About </h3>
+                <p> Dedicated to providing the best services to my customers.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Contactus.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: weruvincent@gmail.com</p>
+                <p>Phone: +254 739 124 529</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Your Company. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('responsive');
+}
+
+
+    // Add any interactive JavaScript here
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('About Us section loaded');
+});
+
+    </script>
+        
+    
+</body>
+</html>
