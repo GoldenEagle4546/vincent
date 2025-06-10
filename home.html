@@ -311,11 +311,18 @@
         </div>
     </footer>
     <script>
-        function toggleMenu() {
+           function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+            function toggleMenu() {
             const navbar = document.getElementById('navbar');
             navbar.classList.toggle('responsive');
 }
-
         let currentSlide = 0;
 
         function moveSlide(direction) {
