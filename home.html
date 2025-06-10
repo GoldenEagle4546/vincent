@@ -9,78 +9,75 @@
             padding: 0px;
             margin: 0px;
         }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #131313;
-            padding: 10px 20px;
-        }
-        
-        .navbar .logo {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-        }
-        
-        .navbar .nav-links {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
+  
+        nav{
+    background-color: #131313;
+    }
 
-        .navbar .nav-links li {
-            margin-left: 20px;
-        }
+    nav ul{
+      width:100%;
+      list-style: none;
+      display:flex;
+      justify-content: flex-end;
+      align-items:center;
+    }
 
-        .navbar .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 8px 16px;
-            transition: background-color 0.3s;
-        }
+    nav li{
+      height:50px;
+    }
 
-        .navbar .nav-links a:hover {
-            background-color: #575757;
-            border-radius: 4px;
-        }
+    nav a{
+      height:100%;
+      padding:0 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color:white;
+    }
 
-        .navbar .menu-icon {
-            display: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-        }
+    nav a:hover{
+      background-color: #080808;
+    }
+
+    nav li:first-child{
+      margin-right: auto;
+    }
+    
+   .sidebar{
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100vh;
+    width:250px;
+    z-index:999;
+    background-color: #13131388;
+    display:none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    backdrop-filter: blur(10px);
+    }
+    
+    .sidebar li{
+      width:100%;
+    }
+
+    .sidebar a{
+      width:100%;
+    }
+
+    .menu-button{
+      display: block;
+    }
 
         @media (max-width: 768px) {
-            .navbar .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #131313;
-            }
-
-            .navbar .nav-links li {
-                margin: 0;
-            }
-
-            .navbar .nav-links a {
-                padding: 10px;
-                text-align: center;
-            }
-
-            .navbar .menu-icon {
-                display: block;
-            }
+   .menu-button{
+      display: none;
+    }
+  .hideOnMobile{
+        display:none;
+      } 
         }
-
-        .navbar.responsive .nav-links {
-            display: flex;
-        }
-        
         .welcome-container {
             text-align: center;
             background-color: #080808;
@@ -244,17 +241,25 @@
     </style>
 </head>
 <body>
-<nav class="navbar" id="navbar">
-        <a src="#" class="logo">Vincent Web</a>
-        <span class="menu-icon" onclick="toggleMenu()">☰</span>
-        <ul class="nav-links">
+
+   <nav>
+        <ul >
+            <li><a href="home.html">Vincent's Web</a></li>
+            <li class="hideOnMobile"><a href="index.html">Home</a></li>
+            <li class="hideOnMobile"><a href="About.html">About</a></li>
+            <li class="hideOnMobile"><a href="home.html">Services</a></li>
+            <li class="hideOnMobile"><a href="Contactus.html">Contact</a></li>
+            <li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3E3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+       <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3E3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="home.html">Services</a></li>
             <li><a href="Contactus.html">Contact</a></li>
         </ul>
     </nav>
-
+    
     <div class="welcome-container">
     <div class="container" role="main">
     <h1> My Services</h1>
