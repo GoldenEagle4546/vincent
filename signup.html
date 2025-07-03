@@ -99,26 +99,42 @@
 </head>
   
 <body>
-<form action="https://formspree.io/f/mrbkdyey" method="POST" id="signupForm">
+<form action="" method="POST" id="signupForm">
+<form id="signupForm">
   <label for="name">Name:</label><br />
   <input type="text" name="name" required /><br /><br />
 
   <label for="email">Email:</label><br />
   <input type="email" name="email" required /><br /><br />
 
-  <!-- 🔒 Redirects to your main page after successful submission -->
-  <input type="hidden" name="_redirect" value="https://goldeneagle4546.github.io/index.html/" />
-
-  <input type="submit" value="Sign Up" />
+  <button type="submit">Sign Up</button>
 </form>
 
 <script>
-  document.getElementById("signupForm").addEventListener("submit", function () {
-    localStorage.setItem("signedUp", "true");
+  const form = document.getElementById("signupForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(form);
+
+    fetch("https://formspree.io/f/mrbkdyey", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        localStorage.setItem("signedUp", "true");
+        window.location.href = "index.html"; // ✅ redirect manually
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    });
   });
 </script>
-    
-  
         
     
 </body>
