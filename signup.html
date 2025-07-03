@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+    
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #080808;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  form {
+    background-color: #131313;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 255, 238, 0.2);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeInUp 1s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  label {
+    font-weight: bold;
+    color: #00ffee;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #00ffee;
+    border-radius: 6px;
+    background-color: #0a0a0a;
+    color: white;
+  }
+
+  input[type="submit"] {
+    background-color: #00ffee;
+    color: #080808;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: white;
+    color: #00ffee;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.about-us {
+    padding: 50px 0;
+    background: #080808;
+    text-align: center;
+}
+.about-us span{
+    color:#00ffee;
+}
+.about-us h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #fff;
+}
+
+.about-us p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+    </style>
+</head>
+  
+<body>
+
+<section class="">
+       <form action="https://formspree.io/f/mrbkdyey" method="POST" id="signupForm">
+  <label for="name">Name:</label><br />
+  <input type="text" name="name" required /><br /><br />
+
+  <label for="email">Email:</label><br />
+  <input type="email" name="email" required /><br /><br />
+
+  <input type="submit" value="Sign Up" />
+</form>
+
+    </section>
+
+    <script>
+ document.getElementById("signupForm").addEventListener("submit", function () {
+    localStorage.setItem("signedUp", "true");
+  });
+
+    </script>
+        
+    
+</body>
+</html>
