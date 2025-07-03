@@ -357,7 +357,11 @@ var typed=new Typed(".input",{
   typedSpeed:270,
   backSpeed:170,
   loop:true
-})
+}}
+ document.getElementById("signupForm").addEventListener("submit", function () {
+    localStorage.setItem("signedUp", "true");
+  });
+
   </script>
 </body>
 </html>
