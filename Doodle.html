@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Neon Doodle Pad</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #080808;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h2 {
+      color: #00ffee;
+      margin-bottom: 10px;
+    }
+
+    canvas {
+      border: 2px solid #00ffee;
+      background-color: #131313;
+      box-shadow: 0 0 15px #00ffee;
+      cursor: crosshair;
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    .controls button {
+      background-color: #00ffee;
+      color: #080808;
+      border: none;
+      padding: 10px 18px;
+      margin: 0 8px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: white;
+      color: #00ffee;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🖌 Neon Doodle Pad</h2>
+  <canvas id="doodleCanvas" width="600" height="400"></canvas>
+
+  <div class="controls">
+    <button id="penBtn">🖊 Pen</button>
+    <button id="eraserBtn">🧹 Eraser</button>
+    <button id="clearBtn">🧽 Clear</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("doodleCanvas");
+    const ctx = canvas.getContext("2d");
+    let drawing = false;
+    let isErasing = false;
+
+    function setBrush() {
+      ctx.lineWidth = 3;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = isErasing ? "#131313" : "#00ffee";
+      ctx.strokeStyle = isErasing ? "#131313" : "#00ffee";
+    }
+
+    // Button actions
+    document.getElementById("penBtn").onclick = () => {
+      isErasing = false;
+      setBrush();
+    };
+
+    document.getElementById("eraserBtn").onclick = () => {
+      isErasing = true;
+      setBrush();
+    };
+
+    document.getElementById("clearBtn").onclick = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    };
+
+    setBrush(); // Initialize brush
+
+    function beginStroke(x, y) {
+      const rect = canvas.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.moveTo(x - rect.left, y - rect.top);
+    }
+
+    function stroke(x, y) {
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(x - rect.left, y - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x - rect.left, y - rect.top);
+    }
+
+    canvas.addEventListener("mousedown", (e) => {
+      drawing = true;
+      beginStroke(e.clientX, e.clientY);
+    });
+
+    canvas.addEventListener("mouseup", () => drawing = false);
+    canvas.addEventListener("mouseout", () => drawing = false);
+    canvas.addEventListener("mousemove", (e) => {
+      if (drawing) stroke(e.clientX, e.clientY);
+    });
+
+    canvas.addEventListener("touchstart", (e) => {
+      drawing = true;
+      const touch = e.touches[0];
+      beginStroke(touch.clientX, touch.clientY);
+    });
+
+    canvas.addEventListener("touchend", () => drawing = false);
+    canvas.addEventListener("touchcancel", () => drawing = false);
+    canvas.addEventListener("touchmove", (e) => {
+      if (!drawing) return;
+      const touch = e.touches[0];
+      stroke(touch.clientX, touch.clientY);
+      e.preventDefault();
+    });
+  </script>
+
+</body>
+</html>
