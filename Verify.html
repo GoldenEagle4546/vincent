@@ -109,33 +109,32 @@
   </div>
 
   <script>
-    const captchaQ = document.getElementById('captchaQ');
-    const errorMsg = document.getElementById('errorMsg');
-    const successIcon = document.getElementById('successIcon');
     let answer;
 
-    function generateCaptcha() {
+    window.onload = () => {
+      const captchaQ = document.getElementById('captchaQ');
       const num1 = Math.floor(Math.random() * 10) + 1;
       const num2 = Math.floor(Math.random() * 10) + 1;
       answer = num1 + num2;
       captchaQ.textContent = What is ${num1} + ${num2}?;
-    }
+    };
 
     function validateCaptcha() {
       const input = document.getElementById('captchaInput').value;
+      const errorMsg = document.getElementById('errorMsg');
+      const successIcon = document.getElementById('successIcon');
+
       if (parseInt(input) === answer) {
-        // ✅ Track success count
+        // ✅ Analytics tracking
         let verifiedCount = localStorage.getItem("verifiedVisitors");
         verifiedCount = verifiedCount ? parseInt(verifiedCount) + 1 : 1;
         localStorage.setItem("verifiedVisitors", verifiedCount);
+        localStorage.setItem("lastVerifiedTime", new Date().toISOString());
 
-        // ✅ Track time of verification
-        const timestamp = new Date().toISOString();
-        localStorage.setItem("lastVerifiedTime", timestamp);
-
-        // ✅ Show animation + redirect
+        // ✅ Success flow
         errorMsg.textContent = "";
         successIcon.style.display = "block";
+
         setTimeout(() => {
           window.location.href = "index.html";
         }, 1500);
@@ -143,8 +142,6 @@
         errorMsg.textContent = "Incorrect answer. Please try again.";
       }
     }
-
-    generateCaptcha();
   </script>
 
 </body>
