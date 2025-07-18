@@ -50,6 +50,7 @@ body{
 
     nav{
     background-color: #131313;
+    padding: 5px;
     }
 
     nav ul{
@@ -137,12 +138,15 @@ body{
       }
       
       .container .hero-pic{
-      widh:300px;
+     /* widh:300px;
       heigh:300px;
       border-radiu:50% ;
       overflo: hidden;
       borde:9px solid #00ffee;
-      box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+      box-shadow: 5px 7px 25px rgba(0,0,0,0.5);  */
+       position: relative;
+       text-align: center;
+       margin: 5px ; 
       }
       
       .hero-pic img{
@@ -153,8 +157,28 @@ body{
         border-radius: 50%;
         border:2px solid #00ffee;
         box-shadow: 0 0 25px #00ffee;
+        filter: blur(14px);
+        transition: filter 0.5s ease;
       }
 
+    .hero-pic:hover img {
+    filter: blur(0);
+     }
+
+  .caption {
+    margin-top: 10px;
+    color: #00ffee;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
       .hero-text{
         max-width: 500px;
         display:flex;
@@ -326,8 +350,10 @@ body{
     </div>
  <div class="container">
     <div class="hero-pic">
-    <img src="images/logowhite.jpg">
-      </div>
+       <img src="images/logowhite.jpg">
+       <div class="caption">👨‍💻 Click to see creator </div>
+    </div>
+
       <div class="hero-text">
         <h5>Hi I'm <span class="input">Web Developer</span></h5>
         <h1>Vincent Weru</h1>
@@ -340,7 +366,8 @@ body{
         <div class="social">
           <a href="https://wa.me/254739124529"><i class="fa-brands fa-whatsapp"></i></a>
           <a href="mailto:weruvincent@gmail.com"><i class="fa-regular fa-envelope"></i></a>
-         <a href="https://www.snapchat.com/add/doodle.snapking"><i class="fa-brands fa-snapchat"></i></a>
+          <a href="#"><i class="fa-brands fa-discord"></i></a>
+      <!--   <a href="https://www.snapchat.com/add/doodle.snapking"><i class="fa-brands fa-snapchat"></i></a> -->
           <a href="tel:+254739124529"><ion-icon name="call-outline" class="me"></ion-icon></a>
         </div>
       </div>
