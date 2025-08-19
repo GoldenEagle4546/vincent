@@ -39,6 +39,18 @@
     50% { box-shadow: 0 0 16px #00ffee; }
     100% { box-shadow: 0 0 8px #00ffee; }
   }
+      @keyframes shake {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.shake {
+ animation: shake 3s infinite ease-in-out;
+}
   *{
   margin: 0;
   padding: 0;
@@ -227,6 +239,18 @@ body{
       .btn{
         text-decoration: none;
       }
+    
+     .hero-text .social img{
+        width: 50px;
+        height: 50px;
+        margin-right:10px;
+        transition: 0.5s;
+      }
+
+      .hero-text .social img:hover{
+        transform: rotate(360deg);
+      }
+/*
     .hero-text .social .me{
         color: white;
         font-size:18px;
@@ -249,7 +273,7 @@ body{
       .hero-text .social i:hover{
         color:#00ffee;
         transform: rotate(360deg);
-      }
+      } */
 
       @keyframes floatImage {
         0%{
@@ -324,7 +348,7 @@ body{
   
 <body>
   <!-- Support Me Icon -->
-<a href="Donations.html" class="support-icon" title="Support Vincent">
+<a href="Donations.html" class="support-icon shake" title="Support Vincent">
   💖
 </a>
    <nav>
@@ -364,11 +388,10 @@ body{
        <!--  <a href="#" class="btn">Download CV</a> -->
         </div>
         <div class="social">
-          <a href="https://wa.me/254739124529"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="mailto:weruvincent@gmail.com"><i class="fa-regular fa-envelope"></i></a>
-          <a href="https://discord.gg/DFSHE6ewwE"><i class="fa-brands fa-discord"></i></a>
-      <!--   <a href="https://www.snapchat.com/add/doodle.snapking"><i class="fa-brands fa-snapchat"></i></a> -->
-          <a href="tel:+254739124529"><ion-icon name="call-outline" class="me"></ion-icon></a>
+          <a href="https://wa.me/254739124529"><img src="images/Whatsapp.jpeg" alt="Whatsapp"></a>
+          <a href="mailto:weruvincent@gmail.com"><img src="images/Mail.jpeg" alt="Mail"></a>
+          <a href="https://discord.gg/DFSHE6ewwE"><img src="images/Discord.jpeg" alt="Discord"></a>
+          <a href="tel:+254739124529"><img src="images/Call.jpeg" alt="Call"></a>
         </div>
       </div>
     </div>
@@ -442,3 +465,4 @@ var typed=new Typed(".input",{
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
